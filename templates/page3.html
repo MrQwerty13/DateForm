@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Последний шаг</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+
+<h1>Выбери дату ❤️</h1>
+
+<form action="/submit" method="POST">
+
+    <input
+        type="date"
+        name="date"
+        required
+    >
+
+    <input
+        type="text"
+        name="place"
+        placeholder="Куда пойдем?"
+        required
+    >
+
+    <button class="btn yes">
+        Отправить
+    </button>
+
+</form>
+
+</div>
+
+</body>
+</html>
