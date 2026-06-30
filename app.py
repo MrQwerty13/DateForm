@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -20,11 +22,14 @@ def page3():
 
 @app.route("/submit", methods=["POST"])
 def submit():
+    # Получаем данные из формы
     date = request.form.get("date")
     place = request.form.get("place")
 
-    print(f"Date: {date}")
-    print(f"Place: {place}")
+    # Записываем данные в файл data.txt
+    with open("data.txt", "w", encoding="utf-8") as file:
+        file.write(f"Дата: {date}\n")
+        file.write(f"Место: {place}\n")
 
     return render_template(
         "success.html",
@@ -34,4 +39,11 @@ def submit():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Получаем IP-адрес MacBook
+    ip_address = os.popen("ipconfig getifaddr en0").read().strip()
+
+    app.run(
+        debug=True,
+        host=ip_address,
+        port=int(os.environ.get("PORT", 8080))
+    )
