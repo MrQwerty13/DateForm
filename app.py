@@ -39,11 +39,10 @@ def submit():
 
 
 if __name__ == "__main__":
-    # Получаем IP-адрес MacBook
     ip_address = "192.168.1.86"
 
     app.run(
         debug=True,
         host=ip_address,
-        port=int(os.environ.get("PORT", 8080))
+        port=int(os.environ.get("PORT", 6767))
     )
