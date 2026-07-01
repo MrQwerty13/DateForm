@@ -40,7 +40,7 @@ def submit():
 
 if __name__ == "__main__":
     # Получаем IP-адрес MacBook
-    ip_address = os.popen("ipconfig getifaddr en0").read().strip()
+    ip_address = "192.168.1.86"
 
     app.run(
         debug=True,
