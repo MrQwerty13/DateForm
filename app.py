@@ -42,7 +42,7 @@ if __name__ == "__main__":
     ip_address = "192.168.1.86"
 
     app.run(
-        debug=True,
+        debug=False,
         host=ip_address,
         port=int(os.environ.get("PORT", 6767))
     )
